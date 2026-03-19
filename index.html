@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Royal birthday for  Prasanth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #1a0f0c 0%, #3d2a1f 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+        }
+        /* main book/card container - responsive */
+        .royal-card {
+            max-width: 1100px;
+            width: 100%;
+            background: #fef7e6;
+            background-image: repeating-linear-gradient(45deg, rgba(200,168,130,0.1) 0px, rgba(200,168,130,0.1) 2px, transparent 2px, transparent 8px);
+            border-radius: 32px 32px 24px 24px;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.6), 0 0 0 2px #b48b5a, 0 0 0 6px #5e3e28;
+            padding: 20px;
+            position: relative;
+            border: 1px solid #e4c9a7;
+        }
+
+        /* ========== PAGE 1: SEALED LETTER ========== */
+        .page {
+            display: block;
+            transition: opacity 0.6s ease;
+        }
+        .page.hidden {
+            display: none !important;
+        }
+
+        .seal-container {
+            background: #f2e2cc;
+            border: 2px solid #ad7e5a;
+            border-radius: 16px 16px 40px 40px;
+            padding: 30px 15px 40px 15px;
+            box-shadow: inset 0 0 0 1px #f9e9d4, 0 10px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            max-width: 700px;
+            margin: 10px auto;
+            background: #eadac2;
+            background: radial-gradient(circle at 30% 40%, #f7e9d4, #dbcbb4);
+            position: relative;
+            overflow: hidden;
+        }
+        .seal-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 0 3px #dbb47a;
+        }
+        .letter-front {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .royal-wax {
+            width: 120px;
+            height: 120px;
+            background: #a0351f;
+            background: radial-gradient(circle at 30% 30%, #c9431f, #71280e);
+            border-radius: 50%;
+            margin: 0 auto 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 0 #4d1d0b, 0 15px 20px rgba(0,0,0,0.5);
+            border: 3px solid #b8874f;
+            animation: waxPulse 2s infinite ease-in-out;
+        }
+        @keyframes waxPulse {
+            0% { transform: scale(1); box-shadow: 0 8px 0 #4d1d0b, 0 15px 20px rgba(0,0,0,0.5); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 0 #6b2f18, 0 20px 25px rgba(0,0,0,0.7); }
+            100% { transform: scale(1); box-shadow: 0 8px 0 #4d1d0b, 0 15px 20px rgba(0,0,0,0.5); }
+        }
+        .bow-svg {
+            width: 90px;
+            height: 90px;
+            filter: drop-shadow(2px 6px 3px #311e0e);
+        }
+        .seal-text {
+            font-size: 1.4rem;
+            color: #3b281a;
+            font-family: 'Georgia', serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: rgba(200,160,120,0.4);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 60px;
+            border: 2px solid #a97946;
+            backdrop-filter: blur(2px);
+            font-weight: 500;
+            box-shadow: inset 0 1px 4px #ffeecc;
+        }
+        .open-hint {
+            margin-top: 25px;
+            font-style: italic;
+            color: #3d2b19;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255,215,170,0.4);
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: 1px solid #b48b5a;
+            animation: hintGlow 1.8s infinite;
+        }
+        @keyframes hintGlow {
+            0% { box-shadow: 0 0 5px #f0b27a; }
+            50% { box-shadow: 0 0 20px #f7dc6f; }
+            100% { box-shadow: 0 0 5px #f0b27a; }
+        }
+        .finger-icon {
+            font-size: 1.8rem;
+            animation: pointFinger 1s infinite alternate;
+        }
+        @keyframes pointFinger {
+            from { transform: translateX(-5px); }
+            to { transform: translateX(5px); }
+        }
+
+        /* ========== PAGE 2: BIRTHDAY SCENE (fully responsive) ========== */
+        .cake-stage {
+            background: #1d2b31;
+            background: linear-gradient(45deg, #212f36, #17332c);
+            border-radius: 40px 40px 30px 30px;
+            padding: 15px 10px 30px 10px;
+            border: 3px solid #b4946a;
+            box-shadow: inset 0 0 20px #6e5d4b, 0 10px 20px black;
+            margin-bottom: 10px;
+        }
+        .typewriter-area {
+            background: #1e1e1e;
+            padding: 15px 18px;
+            border-radius: 40px;
+            border: 2px solid #b5875a;
+            box-shadow: 0 0 0 3px #422f1f, inset 0 0 10px #2f261c;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d4d4d4;
+            font-size: 5vw;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 100%;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 0 5px #b98f5b;
+        }
+        @media (min-width: 600px) {
+            .typewriter-area { font-size: 1.8rem; }
+        }
+        #typewriter {
+            border-right: 4px solid #dbba7a;
+            animation: blinkCursor 1s infinite;
+            padding-right: 6px;
+            display: inline-block;
+        }
+        @keyframes blinkCursor {
+            0%, 100% { border-color: #dbba7a; }
+            50% { border-color: transparent; }
+        }
+
+        /* cake canvas wrapper responsive */
+        .cake-canvas-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0 5px;
+            background: #2e423b;
+            background: radial-gradient(circle at 20% 100%, #20332e, #1b2620);
+            border-radius: 50px;
+            padding: 15px;
+            border: 4px solid #c8a16e;
+            position: relative;
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            background: #24332e;
+            border-radius: 40px;
+            box-shadow: 0 10px 0 #0f1f1a, 0 20px 20px rgba(0,0,0,0.7);
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        /* animated instruction for blowing */
+        .blow-instruction {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #22322e;
+            color: #fadfad;
+            padding: 10px 20px;
+            border-radius: 40px;
+            border: 2px solid #c8a16e;
+            margin: 12px auto 0 auto;
+            width: fit-content;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px #ffb347;
+            animation: pulseInstruction 1.2s infinite;
+        }
+        @keyframes pulseInstruction {
+            0% { box-shadow: 0 0 5px #f7b267; }
+            50% { box-shadow: 0 0 25px #f7dc6f; }
+            100% { box-shadow: 0 0 5px #f7b267; }
+        }
+        .arrow-down {
+            font-size: 1.8rem;
+            animation: bounceArrow 1s infinite;
+        }
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(-5px); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ========== PAGE 3: UNFOLDING PINK LETTER (no photo) ========== */
+        .pink-letter-page {
+            background: #fde1e8;
+            background: linear-gradient(145deg, #ffdae3, #fbc1d0);
+            border-radius: 40px 40px 24px 24px;
+            padding: 30px 18px;
+            border: 8px double #d45d7a;
+            box-shadow: 0 0 0 6px #a0485b, 0 20px 40px #1f0e0e;
+            transform-origin: top center;
+            animation: unfoldLetter 1s ease-out;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        @keyframes unfoldLetter {
+            0% { transform: scaleY(0); opacity: 0; }
+            100% { transform: scaleY(1); opacity: 1; }
+        }
+
+        .pink-letter-page h1 {
+            font-size: 2.4rem;
+            font-family: 'Georgia', cursive;
+            color: #a1304b;
+            text-align: center;
+            text-shadow: 4px 4px 0 #ffb6c1, 6px 6px 0 rgba(150,40,70,0.3);
+            margin: 0 0 20px 0;
+            word-break: break-word;
+        }
+
+        .message-body {
+            background: #fff0f5;
+            padding: 35px 25px;
+            border-radius: 60px 20px 60px 20px;
+            border: 6px double #e6647c;
+            font-size: 1.3rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #511d2b;
+            box-shadow: inset 0 0 30px #feb6c0;
+            line-height: 1.8;
+            text-align: left;
+            white-space: pre-line;
+        }
+        .royal-signature {
+            margin-top: 35px;
+            font-size: 2.2rem;
+            font-style: italic;
+            text-align: right;
+            font-family: 'Brush Script MT', cursive;
+            color: #931f44;
+            border-top: 3px dashed #e65c84;
+            padding-top: 18px;
+        }
+        .back-button {
+            background: #4e3022;
+            color: #ffddbb;
+            border: none;
+            font-size: 1.4rem;
+            padding: 10px 30px;
+            border-radius: 40px;
+            margin-top: 30px;
+            cursor: pointer;
+            border: 2px solid #ca9f6e;
+            transition: 0.2s;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background: #2f1c13;
+            color: #fff5e0;
+            border-color: #e6b885;
+        }
+
+        /* helper */
+        .text-center { text-align: center; }
+    </style>
+</head>
+<body>
+<div class="royal-card">
+    <!-- PAGE 1: sealed letter with bow + animated hint "click on Prasanth" -->
+    <div id="page1" class="page">
+        <div class="seal-container" id="sealLetter">
+            <div class="letter-front">
+                <div class="royal-wax">
+                    <svg class="bow-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(10,20)">
+                            <path d="M30,20 Q10,10 5,30 Q0,45 15,50 Q25,55 30,40 Q35,30 30,20" fill="#e83c3c" stroke="#b82a2a" stroke-width="2"/>
+                            <path d="M50,20 Q70,10 75,30 Q80,45 65,50 Q55,55 50,40 Q45,30 50,20" fill="#e83c3c" stroke="#b82a2a" stroke-width="2"/>
+                            <ellipse cx="40" cy="35" rx="8" ry="12" fill="#c92525" stroke="#931c1c" stroke-width="2"/>
+                            <path d="M35,45 L25,70 M45,45 L55,70" stroke="#c92525" stroke-width="8" stroke-linecap="round"/>
+                        </g>
+                        <circle cx="50" cy="50" r="6" fill="#f3d365" stroke="#b46f30" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="seal-text">✧   PRASANTH  ✧</div>
+                <div class="open-hint">
+                    <span class="finger-icon">👉👆</span>
+                    <span>click on Prasanth to open next</span>
+                    <span class="finger-icon">👆👈</span>
+                </div>
+            </div>
+            <!-- subtle animated sparkles behind -->
+            <div style="position:absolute; bottom:5px; right:10px; opacity:0.3; font-size:2rem;">✨</div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: typewriter + cake + candle blow + animated instruction -->
+    <div id="page2" class="page hidden">
+        <div class="cake-stage">
+            <div class="typewriter-area">
+                <span id="typewriter"></span>
+            </div>
+            <div class="cake-canvas-wrapper">
+                <canvas id="cakeCanvas" width="600" height="400"></canvas>
+            </div>
+            <!-- animated blow instruction -->
+            <div class="blow-instruction">
+                <span>👇 touch flame & drag down to blow</span>
+                <span class="arrow-down">👇</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: pink unfolding letter (NO photo, just pure love) -->
+    <div id="page3" class="page hidden">
+        <div class="pink-letter-page">
+            <h1>💗 Happy Birthday Prasanth 💗</h1>
+            <div class="message-body" id="specialMessage">
+                <!-- emotional messages will be injected without quotes -->
+            </div>
+            <div class="royal-signature">with love, your girl</div>
+            <div class="text-center">
+                <button class="back-button" id="resetBtn">⇐ open another letter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ---------- PAGE CONTROL ----------
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const page3 = document.getElementById('page3');
+
+        function showPage(p) {
+            page1.classList.add('hidden');
+            page2.classList.add('hidden');
+            page3.classList.add('hidden');
+            if (p === 1) page1.classList.remove('hidden');
+            else if (p === 2) page2.classList.remove('hidden');
+            else if (p === 3) page3.classList.remove('hidden');
+        }
+
+        // seal click (page1) -> go to page2, start typewriter & cake animation
+        document.getElementById('sealLetter').addEventListener('click', function() {
+            showPage(2);
+            startTypewriter();
+            startCakeAnimation();
+        });
+
+        // reset button -> back to seal (page1)
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            showPage(1);
+            // reset candle state
+            blown = false;
+            candleLit = true;
+            drawCake();
+        });
+
+        // ---------- TYPEWRITER (entering live) ----------
+        const typeEl = document.getElementById('typewriter');
+        const fullText = "Happy Birthday Prasanth!";
+        let index = 0;
+        let typing = false;
+
+        function startTypewriter() {
+            if (typing) return;
+            typing = true;
+            index = 0;
+            typeEl.textContent = '';
+            function addChar() {
+                if (index < fullText.length) {
+                    typeEl.textContent += fullText.charAt(index);
+                    index++;
+                    setTimeout(addChar, 120);
+                }
+            }
+            addChar();
+        }
+
+        // ---------- CAKE ANIMATION (3 layers, cream pouring, candle) ----------
+        const canvas = document.getElementById('cakeCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let candleLit = true;
+        let blown = false;
+        let animFrame = null;
+        let pourPhase = 0;
+
+        function drawCake() {
+            ctx.clearRect(0, 0, 600, 400);
+            ctx.fillStyle = '#23332e';
+            ctx.fillRect(0, 0, 600, 400);
+
+            // plate
+            ctx.fillStyle = '#bca37c';
+            ctx.shadowColor = '#1e130c';
+            ctx.shadowBlur = 12;
+            ctx.shadowOffsetY = 4;
+            ctx.beginPath();
+            ctx.ellipse(300, 350, 200, 30, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#9d7e5b';
+            ctx.shadowBlur = 6;
+            ctx.beginPath();
+            ctx.ellipse(300, 355, 160, 20, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // 3 layers
+            ctx.shadowOffsetY = 8;
+            ctx.shadowBlur = 10;
+
+            // bottom
+            ctx.fillStyle = '#d49c6c';
+            ctx.beginPath();
+            ctx.ellipse(300, 290, 150, 45, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#b07644';
+            ctx.beginPath();
+            ctx.ellipse(300, 290, 130, 35, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // middle
+            ctx.fillStyle = '#e5b587';
+            ctx.beginPath();
+            ctx.ellipse(300, 235, 120, 40, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#c58f5a';
+            ctx.beginPath();
+            ctx.ellipse(300, 235, 100, 30, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // top
+            ctx.fillStyle = '#f3c9a0';
+            ctx.beginPath();
+            ctx.ellipse(300, 180, 90, 35, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#dc9f68';
+            ctx.beginPath();
+            ctx.ellipse(300, 180, 70, 25, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // cream pouring
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = '#3a281c';
+            for (let i = 0; i < 10; i++) {
+                let offset = (i * 27 + pourPhase * 30) % 200 - 100;
+                let x = 300 + offset;
+                let y = 185 + Math.sin(i + pourPhase * 4) * 8;
+                ctx.beginPath();
+                ctx.ellipse(x, y, 12, 8 + Math.sin(pourPhase*10 + i)*2, 0, 0, Math.PI*2);
+                ctx.fillStyle = '#ffeecc';
+                ctx.globalAlpha = 0.75;
+                ctx.fill();
+                ctx.beginPath();
+                ctx.ellipse(x-3, y+14, 6, 12, 0, 0, Math.PI*2);
+                ctx.fillStyle = '#faded2';
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1.0;
+
+            // candle
+            ctx.shadowOffsetY = 6;
+            ctx.fillStyle = '#f0b1b1';
+            ctx.fillRect(285, 110, 30, 70);
+            ctx.fillStyle = '#d67a7a';
+            ctx.fillRect(288, 110, 24, 10);
+            ctx.shadowBlur = 4;
+            ctx.strokeStyle = '#2f221a';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(300, 110);
+            ctx.lineTo(300, 100);
+            ctx.stroke();
+
+            // flame
+            if (candleLit) {
+                const gradient = ctx.createRadialGradient(300, 90, 5, 300, 80, 25);
+                gradient.addColorStop(0, '#fffac2');
+                gradient.addColorStop(0.5, '#ffa726');
+                gradient.addColorStop(1, '#f97316');
+                ctx.shadowColor = '#ffb347';
+                ctx.shadowBlur = 30;
+                ctx.beginPath();
+                ctx.moveTo(290, 95);
+                ctx.lineTo(300, 50);
+                ctx.lineTo(310, 95);
+                ctx.closePath();
+                ctx.fillStyle = gradient;
+                ctx.fill();
+            }
+
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowColor = 'transparent';
+        }
+
+        function startCakeAnimation() {
+            if (animFrame) cancelAnimationFrame(animFrame);
+            function animate() {
+                pourPhase = (pourPhase + 0.02) % (Math.PI * 2);
+                drawCake();
+                animFrame = requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // ---------- CANDLE BLOW (touch/click from top to bottom) ----------
+        let dragStartY = null;
+
+        function handleBlowGesture(e) {
+            if (!candleLit || blown) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const scaleY = canvas.height / rect.height;
+            let clientY;
+            if (e.type === 'touchstart' || e.type === 'touchmove') {
+                clientY = e.touches[0].clientY;
+                e.preventDefault();
+            } else {
+                clientY = e.clientY;
+            }
+            const canvasY = (clientY - rect.top) * scaleY;
+
+            if (e.type === 'mousedown' || e.type === 'touchstart') {
+                if (canvasY > 40 && canvasY < 120) dragStartY = canvasY;
+                else dragStartY = null;
+            } else if (e.type === 'mousemove' || e.type === 'touchmove') {
+                if (dragStartY !== null && (canvasY - dragStartY) > 30) {
+                    candleLit = false;
+                    blown = true;
+                    dragStartY = null;
+                    drawCake();
+
+                    setTimeout(() => {
+                        // insert emotional messages WITHOUT quotes
+                        const msg = document.getElementById('specialMessage');
+                        msg.innerHTML = `Before you, I didn't know love could feel this safe. You're not just my boyfriend—you're my home, my peace, and the best part of my every day.\n\nSome people wait their whole lives to feel what I feel with you. I never knew my heart could hold this much love until you came along.\n\nYou've seen me at my worst, and somehow you still choose to stay. That kind of love? It's everything to me. Thank you for never giving up on us.`;
+                        showPage(3);
+                    }, 300);
+                }
+            } else if (e.type === 'mouseup' || e.type === 'touchend' || e.type === 'mouseleave') {
+                dragStartY = null;
+            }
+        }
+
+        canvas.addEventListener('mousedown', handleBlowGesture);
+        canvas.addEventListener('mousemove', handleBlowGesture);
+        canvas.addEventListener('mouseup', handleBlowGesture);
+        canvas.addEventListener('mouseleave', handleBlowGesture);
+        canvas.addEventListener('touchstart', handleBlowGesture, { passive: false });
+        canvas.addEventListener('touchmove', handleBlowGesture, { passive: false });
+        canvas.addEventListener('touchend', handleBlowGesture);
+        canvas.addEventListener('touchcancel', handleBlowGesture);
+
+        // initial draw
+        drawCake();
+        if (!animFrame) startCakeAnimation();
+    })();
+</script>
+</body>
+</html>
