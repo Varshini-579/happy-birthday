@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Royal birthday for  Prasanth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Royal Birthday · Prasanth</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
+            -webkit-tap-highlight-color: transparent;
         }
+
         body {
             min-height: 100vh;
             background: linear-gradient(145deg, #1a0f0c 0%, #3d2a1f 100%);
@@ -18,102 +19,113 @@
             justify-content: center;
             align-items: center;
             padding: 12px;
+            font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
         }
-        /* main book/card container - responsive */
+
+        /* main card container - fully responsive */
         .royal-card {
             max-width: 1100px;
             width: 100%;
             background: #fef7e6;
             background-image: repeating-linear-gradient(45deg, rgba(200,168,130,0.1) 0px, rgba(200,168,130,0.1) 2px, transparent 2px, transparent 8px);
-            border-radius: 32px 32px 24px 24px;
-            box-shadow: 0 30px 40px rgba(0,0,0,0.6), 0 0 0 2px #b48b5a, 0 0 0 6px #5e3e28;
-            padding: 20px;
+            border-radius: clamp(20px, 5vw, 32px) clamp(20px, 5vw, 32px) clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.5), 0 0 0 2px #b48b5a, 0 0 0 5px #5e3e28;
+            padding: clamp(12px, 4vw, 24px);
             position: relative;
             border: 1px solid #e4c9a7;
         }
 
-        /* ========== PAGE 1: SEALED LETTER ========== */
+        /* pages */
         .page {
             display: block;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.4s ease;
         }
         .page.hidden {
             display: none !important;
         }
 
+        /* ========== PAGE 1: SEALED LETTER ========== */
         .seal-container {
             background: #f2e2cc;
+            background: radial-gradient(circle at 30% 40%, #f7e9d4, #dbcbb4);
             border: 2px solid #ad7e5a;
-            border-radius: 16px 16px 40px 40px;
-            padding: 30px 15px 40px 15px;
+            border-radius: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 40px) clamp(30px, 6vw, 60px) clamp(30px, 6vw, 60px);
+            padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 20px) clamp(25px, 6vw, 50px) clamp(15px, 4vw, 20px);
             box-shadow: inset 0 0 0 1px #f9e9d4, 0 10px 20px rgba(0,0,0,0.3);
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.3s;
             max-width: 700px;
             margin: 10px auto;
-            background: #eadac2;
-            background: radial-gradient(circle at 30% 40%, #f7e9d4, #dbcbb4);
             position: relative;
             overflow: hidden;
         }
-        .seal-container:hover {
-            transform: scale(1.01);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 0 3px #dbb47a;
+        .seal-container:active {
+            transform: scale(0.98);
         }
+        @media (hover: hover) {
+            .seal-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 0 3px #dbb47a;
+            }
+        }
+
         .letter-front {
             text-align: center;
             position: relative;
             z-index: 2;
         }
+
         .royal-wax {
-            width: 120px;
-            height: 120px;
-            background: #a0351f;
+            width: clamp(90px, 25vw, 120px);
+            height: clamp(90px, 25vw, 120px);
             background: radial-gradient(circle at 30% 30%, #c9431f, #71280e);
             border-radius: 50%;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 0 #4d1d0b, 0 15px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 0 #4d1d0b, 0 12px 18px rgba(0,0,0,0.5);
             border: 3px solid #b8874f;
             animation: waxPulse 2s infinite ease-in-out;
         }
         @keyframes waxPulse {
-            0% { transform: scale(1); box-shadow: 0 8px 0 #4d1d0b, 0 15px 20px rgba(0,0,0,0.5); }
-            50% { transform: scale(1.03); box-shadow: 0 8px 0 #6b2f18, 0 20px 25px rgba(0,0,0,0.7); }
-            100% { transform: scale(1); box-shadow: 0 8px 0 #4d1d0b, 0 15px 20px rgba(0,0,0,0.5); }
+            0% { transform: scale(1); box-shadow: 0 6px 0 #4d1d0b, 0 12px 18px rgba(0,0,0,0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 6px 0 #6b2f18, 0 18px 22px rgba(0,0,0,0.6); }
+            100% { transform: scale(1); box-shadow: 0 6px 0 #4d1d0b, 0 12px 18px rgba(0,0,0,0.5); }
         }
+
         .bow-svg {
-            width: 90px;
-            height: 90px;
-            filter: drop-shadow(2px 6px 3px #311e0e);
+            width: clamp(65px, 18vw, 90px);
+            height: clamp(65px, 18vw, 90px);
+            filter: drop-shadow(2px 4px 3px #311e0e);
         }
+
         .seal-text {
-            font-size: 1.4rem;
+            font-size: clamp(1rem, 5vw, 1.5rem);
             color: #3b281a;
             font-family: 'Georgia', serif;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            background: rgba(200,160,120,0.4);
+            background: rgba(200,160,120,0.5);
             display: inline-block;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 60px;
             border: 2px solid #a97946;
             backdrop-filter: blur(2px);
             font-weight: 500;
-            box-shadow: inset 0 1px 4px #ffeecc;
         }
+
         .open-hint {
-            margin-top: 25px;
+            margin-top: 20px;
             font-style: italic;
             color: #3d2b19;
-            font-size: 1.2rem;
+            font-size: clamp(0.9rem, 4vw, 1.2rem);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: rgba(255,215,170,0.4);
+            flex-wrap: wrap;
+            background: rgba(255,215,170,0.5);
             padding: 8px 16px;
             border-radius: 50px;
             border: 1px solid #b48b5a;
@@ -125,68 +137,62 @@
             100% { box-shadow: 0 0 5px #f0b27a; }
         }
         .finger-icon {
-            font-size: 1.8rem;
-            animation: pointFinger 1s infinite alternate;
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            animation: pointFinger 0.8s infinite alternate;
         }
         @keyframes pointFinger {
-            from { transform: translateX(-5px); }
+            from { transform: translateX(-3px); }
             to { transform: translateX(5px); }
         }
 
-        /* ========== PAGE 2: BIRTHDAY SCENE (fully responsive) ========== */
+        /* ========== PAGE 2: CAKE STAGE ========== */
         .cake-stage {
-            background: #1d2b31;
-            background: linear-gradient(45deg, #212f36, #17332c);
-            border-radius: 40px 40px 30px 30px;
-            padding: 15px 10px 30px 10px;
+            background: linear-gradient(145deg, #1f2e2a, #15322b);
+            border-radius: clamp(25px, 6vw, 50px);
+            padding: clamp(12px, 3vw, 20px);
             border: 3px solid #b4946a;
             box-shadow: inset 0 0 20px #6e5d4b, 0 10px 20px black;
-            margin-bottom: 10px;
         }
+
         .typewriter-area {
             background: #1e1e1e;
-            padding: 15px 18px;
-            border-radius: 40px;
+            padding: clamp(12px, 3vw, 20px);
+            border-radius: 50px;
             border: 2px solid #b5875a;
-            box-shadow: 0 0 0 3px #422f1f, inset 0 0 10px #2f261c;
+            box-shadow: 0 0 0 2px #422f1f;
             font-family: 'Courier New', Courier, monospace;
-            color: #d4d4d4;
-            font-size: 5vw;
+            color: #f0e6a0;
+            font-size: clamp(1.2rem, 6vw, 2rem);
             letter-spacing: 1px;
             margin-bottom: 15px;
             white-space: nowrap;
-            overflow: hidden;
+            overflow-x: auto;
             max-width: 100%;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
             text-shadow: 0 0 5px #b98f5b;
         }
-        @media (min-width: 600px) {
-            .typewriter-area { font-size: 1.8rem; }
-        }
         #typewriter {
-            border-right: 4px solid #dbba7a;
-            animation: blinkCursor 1s infinite;
-            padding-right: 6px;
+            border-right: 3px solid #dbba7a;
+            animation: blinkCursor 0.9s infinite;
+            padding-right: 5px;
             display: inline-block;
+            white-space: nowrap;
         }
         @keyframes blinkCursor {
             0%, 100% { border-color: #dbba7a; }
             50% { border-color: transparent; }
         }
 
-        /* cake canvas wrapper responsive */
         .cake-canvas-wrapper {
             display: flex;
             justify-content: center;
-            margin: 15px 0 5px;
-            background: #2e423b;
+            margin: 10px 0;
             background: radial-gradient(circle at 20% 100%, #20332e, #1b2620);
             border-radius: 50px;
-            padding: 15px;
+            padding: clamp(10px, 3vw, 20px);
             border: 4px solid #c8a16e;
-            position: relative;
         }
         canvas {
             display: block;
@@ -194,87 +200,87 @@
             max-width: 550px;
             height: auto;
             background: #24332e;
-            border-radius: 40px;
-            box-shadow: 0 10px 0 #0f1f1a, 0 20px 20px rgba(0,0,0,0.7);
+            border-radius: 35px;
+            box-shadow: 0 8px 0 #0f1f1a, 0 15px 20px rgba(0,0,0,0.6);
             cursor: pointer;
-            touch-action: manipulation;
+            touch-action: none;
         }
 
-        /* animated instruction for blowing */
         .blow-instruction {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            background: #22322e;
+            gap: 10px;
+            background: #1e2f2a;
             color: #fadfad;
-            padding: 10px 20px;
-            border-radius: 40px;
-            border: 2px solid #c8a16e;
-            margin: 12px auto 0 auto;
+            padding: 10px 18px;
+            border-radius: 60px;
+            border: 2px solid #dbb47a;
+            margin: 15px auto 5px auto;
             width: fit-content;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px #ffb347;
+            font-size: clamp(0.9rem, 4vw, 1.2rem);
+            font-weight: 600;
+            box-shadow: 0 0 12px #f7b267;
             animation: pulseInstruction 1.2s infinite;
         }
         @keyframes pulseInstruction {
             0% { box-shadow: 0 0 5px #f7b267; }
-            50% { box-shadow: 0 0 25px #f7dc6f; }
+            50% { box-shadow: 0 0 22px #ffd966; }
             100% { box-shadow: 0 0 5px #f7b267; }
         }
         .arrow-down {
-            font-size: 1.8rem;
-            animation: bounceArrow 1s infinite;
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            animation: bounceArrow 0.9s infinite;
         }
         @keyframes bounceArrow {
-            0%, 100% { transform: translateY(-5px); }
+            0%, 100% { transform: translateY(-3px); }
             50% { transform: translateY(8px); }
         }
 
-        /* ========== PAGE 3: UNFOLDING PINK LETTER (no photo) ========== */
+        /* ========== PAGE 3: UNFOLDING PINK LETTER ========== */
         .pink-letter-page {
-            background: #fde1e8;
             background: linear-gradient(145deg, #ffdae3, #fbc1d0);
-            border-radius: 40px 40px 24px 24px;
-            padding: 30px 18px;
+            border-radius: clamp(30px, 6vw, 50px);
+            padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px);
             border: 8px double #d45d7a;
-            box-shadow: 0 0 0 6px #a0485b, 0 20px 40px #1f0e0e;
+            box-shadow: 0 0 0 5px #a0485b, 0 20px 35px rgba(0,0,0,0.4);
             transform-origin: top center;
-            animation: unfoldLetter 1s ease-out;
+            animation: unfoldLetter 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             max-width: 800px;
             margin: 0 auto;
         }
         @keyframes unfoldLetter {
-            0% { transform: scaleY(0); opacity: 0; }
+            0% { transform: scaleY(0); opacity: 0; transform-origin: top; }
             100% { transform: scaleY(1); opacity: 1; }
         }
 
         .pink-letter-page h1 {
-            font-size: 2.4rem;
+            font-size: clamp(1.6rem, 7vw, 2.6rem);
             font-family: 'Georgia', cursive;
             color: #a1304b;
             text-align: center;
-            text-shadow: 4px 4px 0 #ffb6c1, 6px 6px 0 rgba(150,40,70,0.3);
-            margin: 0 0 20px 0;
+            text-shadow: 3px 3px 0 #ffb6c1, 4px 4px 0 rgba(150,40,70,0.3);
+            margin-bottom: 20px;
             word-break: break-word;
         }
 
         .message-body {
             background: #fff0f5;
-            padding: 35px 25px;
-            border-radius: 60px 20px 60px 20px;
-            border: 6px double #e6647c;
-            font-size: 1.3rem;
+            padding: clamp(20px, 5vw, 40px) clamp(18px, 4vw, 30px);
+            border-radius: 50px 20px 50px 20px;
+            border: 5px double #e6647c;
+            font-size: clamp(1rem, 4vw, 1.35rem);
             font-family: 'Georgia', 'Times New Roman', serif;
-            color: #511d2b;
-            box-shadow: inset 0 0 30px #feb6c0;
-            line-height: 1.8;
+            color: #4a1a2c;
+            box-shadow: inset 0 0 25px #fec7d4;
+            line-height: 1.7;
             text-align: left;
             white-space: pre-line;
         }
+
         .royal-signature {
-            margin-top: 35px;
-            font-size: 2.2rem;
+            margin-top: 30px;
+            font-size: clamp(1.6rem, 6vw, 2.2rem);
             font-style: italic;
             text-align: right;
             font-family: 'Brush Script MT', cursive;
@@ -282,32 +288,61 @@
             border-top: 3px dashed #e65c84;
             padding-top: 18px;
         }
+
         .back-button {
             background: #4e3022;
             color: #ffddbb;
             border: none;
-            font-size: 1.4rem;
-            padding: 10px 30px;
-            border-radius: 40px;
-            margin-top: 30px;
+            font-size: clamp(1rem, 4vw, 1.4rem);
+            padding: 12px 28px;
+            border-radius: 60px;
+            margin-top: 28px;
             cursor: pointer;
             border: 2px solid #ca9f6e;
             transition: 0.2s;
             font-weight: bold;
+            width: auto;
+            min-width: 180px;
         }
-        .back-button:hover {
+        .back-button:active {
+            transform: scale(0.96);
             background: #2f1c13;
-            color: #fff5e0;
-            border-color: #e6b885;
+        }
+        @media (hover: hover) {
+            .back-button:hover {
+                background: #2f1c13;
+                border-color: #e6b885;
+            }
         }
 
-        /* helper */
-        .text-center { text-align: center; }
+        .text-center {
+            text-align: center;
+        }
+
+        /* responsive adjustments for small devices */
+        @media (max-width: 550px) {
+            .royal-card {
+                padding: 12px;
+            }
+            .typewriter-area {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            #typewriter {
+                white-space: nowrap;
+            }
+            .cake-canvas-wrapper {
+                padding: 8px;
+            }
+            .blow-instruction {
+                padding: 8px 14px;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="royal-card">
-    <!-- PAGE 1: sealed letter with bow + animated hint "click on Prasanth" -->
+    <!-- PAGE 1: sealed letter with bow -->
     <div id="page1" class="page">
         <div class="seal-container" id="sealLetter">
             <div class="letter-front">
@@ -322,19 +357,17 @@
                         <circle cx="50" cy="50" r="6" fill="#f3d365" stroke="#b46f30" stroke-width="2"/>
                     </svg>
                 </div>
-                <div class="seal-text">✧   PRASANTH  ✧</div>
+                <div class="seal-text">✧ SPECIALLY FOR PRASANTH  ✧</div>
                 <div class="open-hint">
                     <span class="finger-icon">👉👆</span>
-                    <span>click on Prasanth to open next</span>
+                    <span>click on SPECIALLY FOR PRASANTH to open next</span>
                     <span class="finger-icon">👆👈</span>
                 </div>
             </div>
-            <!-- subtle animated sparkles behind -->
-            <div style="position:absolute; bottom:5px; right:10px; opacity:0.3; font-size:2rem;">✨</div>
         </div>
     </div>
 
-    <!-- PAGE 2: typewriter + cake + candle blow + animated instruction -->
+    <!-- PAGE 2: typewriter + cake + candle blow -->
     <div id="page2" class="page hidden">
         <div class="cake-stage">
             <div class="typewriter-area">
@@ -343,7 +376,6 @@
             <div class="cake-canvas-wrapper">
                 <canvas id="cakeCanvas" width="600" height="400"></canvas>
             </div>
-            <!-- animated blow instruction -->
             <div class="blow-instruction">
                 <span>👇 touch flame & drag down to blow</span>
                 <span class="arrow-down">👇</span>
@@ -351,13 +383,11 @@
         </div>
     </div>
 
-    <!-- PAGE 3: pink unfolding letter (NO photo, just pure love) -->
+    <!-- PAGE 3: pink unfolding letter -->
     <div id="page3" class="page hidden">
         <div class="pink-letter-page">
             <h1>💗 Happy Birthday Prasanth 💗</h1>
-            <div class="message-body" id="specialMessage">
-                <!-- emotional messages will be injected without quotes -->
-            </div>
+            <div class="message-body" id="specialMessage"></div>
             <div class="royal-signature">with love, your girl</div>
             <div class="text-center">
                 <button class="back-button" id="resetBtn">⇐ open another letter</button>
@@ -382,23 +412,27 @@
             else if (p === 3) page3.classList.remove('hidden');
         }
 
-        // seal click (page1) -> go to page2, start typewriter & cake animation
-        document.getElementById('sealLetter').addEventListener('click', function() {
+        // seal click -> page2
+        const sealBtn = document.getElementById('sealLetter');
+        sealBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             showPage(2);
             startTypewriter();
             startCakeAnimation();
         });
 
-        // reset button -> back to seal (page1)
-        document.getElementById('resetBtn').addEventListener('click', function() {
+        // reset button -> back to seal, reset candle
+        const resetBtn = document.getElementById('resetBtn');
+        resetBtn.addEventListener('click', function() {
             showPage(1);
-            // reset candle state
             blown = false;
             candleLit = true;
             drawCake();
+            // reset typing flag to allow fresh typewriter next time
+            typing = false;
         });
 
-        // ---------- TYPEWRITER (entering live) ----------
+        // ---------- TYPEWRITER ----------
         const typeEl = document.getElementById('typewriter');
         const fullText = "Happy Birthday Prasanth!";
         let index = 0;
@@ -413,13 +447,13 @@
                 if (index < fullText.length) {
                     typeEl.textContent += fullText.charAt(index);
                     index++;
-                    setTimeout(addChar, 120);
+                    setTimeout(addChar, 110);
                 }
             }
             addChar();
         }
 
-        // ---------- CAKE ANIMATION (3 layers, cream pouring, candle) ----------
+        // ---------- CAKE & CANDLE ----------
         const canvas = document.getElementById('cakeCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -450,7 +484,6 @@
             // 3 layers
             ctx.shadowOffsetY = 8;
             ctx.shadowBlur = 10;
-
             // bottom
             ctx.fillStyle = '#d49c6c';
             ctx.beginPath();
@@ -460,7 +493,6 @@
             ctx.beginPath();
             ctx.ellipse(300, 290, 130, 35, 0, 0, Math.PI * 2);
             ctx.fill();
-
             // middle
             ctx.fillStyle = '#e5b587';
             ctx.beginPath();
@@ -470,7 +502,6 @@
             ctx.beginPath();
             ctx.ellipse(300, 235, 100, 30, 0, 0, Math.PI * 2);
             ctx.fill();
-
             // top
             ctx.fillStyle = '#f3c9a0';
             ctx.beginPath();
@@ -546,7 +577,7 @@
             animate();
         }
 
-        // ---------- CANDLE BLOW (touch/click from top to bottom) ----------
+        // ---------- BLOW GESTURE (drag from flame downwards) ----------
         let dragStartY = null;
 
         function handleBlowGesture(e) {
@@ -555,46 +586,54 @@
             const rect = canvas.getBoundingClientRect();
             const scaleY = canvas.height / rect.height;
             let clientY;
+
             if (e.type === 'touchstart' || e.type === 'touchmove') {
+                if (!e.touches.length) return;
                 clientY = e.touches[0].clientY;
                 e.preventDefault();
             } else {
                 clientY = e.clientY;
             }
+
             const canvasY = (clientY - rect.top) * scaleY;
 
             if (e.type === 'mousedown' || e.type === 'touchstart') {
-                if (canvasY > 40 && canvasY < 120) dragStartY = canvasY;
-                else dragStartY = null;
+                if (canvasY > 40 && canvasY < 125) {
+                    dragStartY = canvasY;
+                } else {
+                    dragStartY = null;
+                }
             } else if (e.type === 'mousemove' || e.type === 'touchmove') {
-                if (dragStartY !== null && (canvasY - dragStartY) > 30) {
+                if (dragStartY !== null && (canvasY - dragStartY) > 28) {
                     candleLit = false;
                     blown = true;
                     dragStartY = null;
                     drawCake();
 
                     setTimeout(() => {
-                        // insert emotional messages WITHOUT quotes
-                        const msg = document.getElementById('specialMessage');
-                        msg.innerHTML = `Before you, I didn't know love could feel this safe. You're not just my boyfriend—you're my home, my peace, and the best part of my every day.\n\nSome people wait their whole lives to feel what I feel with you. I never knew my heart could hold this much love until you came along.\n\nYou've seen me at my worst, and somehow you still choose to stay. That kind of love? It's everything to me. Thank you for never giving up on us.`;
+                        const msgDiv = document.getElementById('specialMessage');
+                        msgDiv.innerHTML = `Before you, I didn't know love could feel this safe. You're not just my boyfriend—you're my home, my peace, and the best part of my every day.\n\nSome people wait their whole lives to feel what I feel with you. I never knew my heart could hold this much love until you came along.\n\nYou've seen me at my worst, and somehow you still choose to stay. That kind of love? It's everything to me. Thank you for never giving up on us.`;
                         showPage(3);
-                    }, 300);
+                    }, 280);
                 }
             } else if (e.type === 'mouseup' || e.type === 'touchend' || e.type === 'mouseleave') {
                 dragStartY = null;
             }
         }
 
+        // attach events for both mouse and touch (cross-device)
         canvas.addEventListener('mousedown', handleBlowGesture);
-        canvas.addEventListener('mousemove', handleBlowGesture);
-        canvas.addEventListener('mouseup', handleBlowGesture);
-        canvas.addEventListener('mouseleave', handleBlowGesture);
+        window.addEventListener('mousemove', (e) => {
+            if (page2.classList.contains('hidden')) return;
+            handleBlowGesture(e);
+        });
+        window.addEventListener('mouseup', handleBlowGesture);
         canvas.addEventListener('touchstart', handleBlowGesture, { passive: false });
         canvas.addEventListener('touchmove', handleBlowGesture, { passive: false });
         canvas.addEventListener('touchend', handleBlowGesture);
         canvas.addEventListener('touchcancel', handleBlowGesture);
 
-        // initial draw
+        // initial canvas draw
         drawCake();
         if (!animFrame) startCakeAnimation();
     })();
